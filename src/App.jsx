@@ -122,7 +122,7 @@ function Nav() {
 function Hero() {
   return (
     <section
-      className="relative min-h-screen flex flex-col justify-center overflow-hidden clip-diagonal"
+      className="relative min-h-screen md:min-h-0 md:h-[85vh] md:max-h-[900px] flex flex-col justify-center overflow-hidden clip-diagonal"
       style={{
         backgroundImage: `url(https://images.unsplash.com/photo-1625047509248-ec889cbff17f?w=1800&q=85)`,
         backgroundSize: 'cover',
@@ -143,7 +143,7 @@ function Hero() {
       {/* Left crimson accent bar */}
       <div className="absolute left-0 top-0 bottom-0 w-1.5 bg-crimson" />
 
-      <div className="relative z-10 max-w-6xl mx-auto px-8 sm:px-10 pt-28 pb-36">
+      <div className="relative z-10 max-w-6xl mx-auto px-8 sm:px-10 pt-28 pb-24 md:pb-28">
         {/* Pre-headline badge */}
         <div className="inline-flex items-center gap-2 bg-black/30 border border-crimson/50 px-3.5 py-2 mb-7 animate-fade-in backdrop-blur-sm">
           <MapPin className="w-3.5 h-3.5 text-crimson flex-shrink-0" />
@@ -185,7 +185,7 @@ function Hero() {
         <div className="flex flex-col sm:flex-row gap-4 animate-fade-up delay-300">
           <a
             href="tel:+18178702237"
-            className="inline-flex items-center justify-center gap-3 bg-crimson hover:bg-crimson-dark text-white font-oswald text-[17px] tracking-[0.1em] px-9 py-4.5 transition-all duration-200 hover:scale-[1.02] shadow-[0_4px_20px_rgba(192,57,43,0.4)]"
+            className="inline-flex items-center justify-center gap-3 bg-crimson hover:bg-crimson-dark text-white font-oswald text-[15px] sm:text-[17px] tracking-[0.1em] px-7 sm:px-9 py-4.5 transition-all duration-200 hover:scale-[1.02] shadow-[0_4px_20px_rgba(192,57,43,0.4)] whitespace-nowrap"
             style={{ paddingTop: '14px', paddingBottom: '14px' }}
           >
             <Phone className="w-5 h-5" />
@@ -202,27 +202,32 @@ function Hero() {
         </div>
       </div>
 
-      {/* Trust Strip */}
-      <div className="absolute bottom-0 left-0 right-0 z-20 bg-near-black/95 border-t border-white/8 backdrop-blur-sm">
-        <div className="max-w-6xl mx-auto px-6 py-3.5">
-          <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-2">
-            {[
-              { icon: <Star className="w-3.5 h-3.5 text-yellow-400 fill-yellow-400" />, text: '4.3 Stars', sub: '400+ Reviews' },
-              { icon: <Shield className="w-3.5 h-3.5 text-trust-green" />, text: '20+ Years', sub: 'in Business' },
-              { icon: <CheckCircle className="w-3.5 h-3.5 text-trust-green" />, text: 'BBB Listed', sub: 'Accredited' },
-              { icon: <MapPin className="w-3.5 h-3.5 text-crimson" />, text: 'Downtown', sub: 'Fort Worth, TX' },
-            ].map((item, i) => (
-              <div key={i} className="flex items-center gap-2">
-                {item.icon}
-                <span className="font-oswald text-white text-[13px] tracking-wider">{item.text}</span>
-                <span className="font-dm text-white/45 text-[11px] hidden sm:block">· {item.sub}</span>
-                {i < 3 && <span className="text-white/15 ml-4 hidden sm:block">|</span>}
-              </div>
-            ))}
-          </div>
+    </section>
+  )
+}
+
+// ─── Trust Strip ─────────────────────────────────────────────────────────────
+function TrustStrip() {
+  return (
+    <div className="relative z-20 bg-near-black border-t border-white/10">
+      <div className="max-w-6xl mx-auto px-6 py-4 md:py-5">
+        <div className="flex flex-wrap items-center justify-center gap-x-10 gap-y-3">
+          {[
+            { icon: <Star className="w-4 h-4 text-yellow-400 fill-yellow-400" />, text: '4.3 Stars', sub: '400+ Reviews' },
+            { icon: <Shield className="w-4 h-4 text-trust-green" />, text: '20+ Years', sub: 'in Business' },
+            { icon: <CheckCircle className="w-4 h-4 text-trust-green" />, text: 'BBB Listed', sub: 'Accredited' },
+            { icon: <MapPin className="w-4 h-4 text-crimson" />, text: 'Downtown', sub: 'Fort Worth, TX' },
+          ].map((item, i) => (
+            <div key={i} className="flex items-center gap-2.5">
+              {item.icon}
+              <span className="font-oswald text-white text-[14px] tracking-wider">{item.text}</span>
+              <span className="font-dm text-white/50 text-[12px] hidden sm:block">· {item.sub}</span>
+              {i < 3 && <span className="text-white/15 ml-5 hidden sm:block">|</span>}
+            </div>
+          ))}
         </div>
       </div>
-    </section>
+    </div>
   )
 }
 
@@ -869,7 +874,11 @@ export default function App() {
     <>
       <Nav />
       <main>
-        <Hero />
+        {/* Dark wrapper prevents white triangle from clip-diagonal */}
+        <div className="bg-near-black">
+          <Hero />
+          <TrustStrip />
+        </div>
         <Services />
         <WhyUs />
         <Team />
