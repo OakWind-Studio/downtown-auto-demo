@@ -143,18 +143,23 @@ function Hero() {
       {/* Left crimson accent bar */}
       <div className="absolute left-0 top-0 bottom-0 w-1.5 bg-crimson" />
 
-      <div className="relative z-10 max-w-6xl mx-auto px-8 sm:px-10 pt-28 pb-24 md:pb-28">
+      <div className="relative z-10 max-w-6xl mx-auto px-8 sm:px-10 pt-28 md:pt-[90px] pb-24 md:pb-10">
         {/* Pre-headline badge */}
-        <div className="inline-flex items-center gap-2 bg-black/30 border border-crimson/50 px-3.5 py-2 mb-7 animate-fade-in backdrop-blur-sm">
+        <a
+          href="https://www.google.com/maps/place/?q=place_id:ChIJr6bE70JxToYReqS8feMtjIA"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-2 bg-black/30 border border-crimson/50 px-3.5 py-2 mb-5 md:mb-4 animate-fade-in backdrop-blur-sm hover:bg-black/50 hover:border-crimson transition-all duration-200 cursor-pointer"
+        >
           <MapPin className="w-3.5 h-3.5 text-crimson flex-shrink-0" />
           <span className="font-dm text-[11px] text-white/90 font-semibold tracking-[0.18em] uppercase">
             118 N Henderson St · Fort Worth, TX 76102
           </span>
-        </div>
+        </a>
 
         {/* Main headline */}
         <h1
-          className="font-oswald text-[52px] sm:text-[68px] lg:text-[80px] text-white leading-[0.93] mb-6 animate-fade-up"
+          className="font-oswald text-[52px] sm:text-[68px] lg:text-[80px] text-white leading-[0.93] mb-4 md:mb-3 animate-fade-up"
           style={{ maxWidth: '780px' }}
         >
           DOWNTOWN<br />
@@ -170,13 +175,13 @@ function Hero() {
         </h1>
 
         {/* Divider */}
-        <div className="flex items-center gap-4 mb-6 animate-fade-up delay-100">
+        <div className="flex items-center gap-4 mb-4 md:mb-3 animate-fade-up delay-100">
           <div className="w-10 h-[3px] bg-crimson" />
           <div className="w-2 h-[3px] bg-crimson/40" />
         </div>
 
         {/* Sub-headline */}
-        <p className="font-dm text-[17px] sm:text-[19px] text-white/75 max-w-[520px] leading-[1.6] mb-10 animate-fade-up delay-200">
+        <p className="font-dm text-[17px] sm:text-[19px] text-white/75 max-w-[520px] leading-[1.6] mb-8 md:mb-6 animate-fade-up delay-200">
           Tires, repairs, inspections, and body work — done right, done fast, done honest.
           Steps from downtown, we get you back on the road while you grab lunch.
         </p>
