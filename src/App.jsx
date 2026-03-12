@@ -122,7 +122,7 @@ function Nav() {
 function Hero() {
   return (
     <section
-      className="relative min-h-screen md:min-h-0 md:h-[85vh] md:max-h-[900px] flex flex-col justify-center overflow-hidden clip-diagonal"
+      className="relative min-h-screen md:min-h-0 md:h-[85vh] md:max-h-[900px] flex flex-col justify-center overflow-hidden"
       style={{
         backgroundImage: `url(https://images.unsplash.com/photo-1625047509248-ec889cbff17f?w=1800&q=85)`,
         backgroundSize: 'cover',
